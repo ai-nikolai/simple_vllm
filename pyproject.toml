@@ -6,9 +6,9 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "vllm_sdk"
+name = "easy_vllm"
 version = "0.0.1"
-description = "VLLM & Unsloth Wrapper for OpenAI Compatible SDK."
+description = "VLLM & Unsloth Wrapper for simple local inference."
 authors = [
     {name = "Nikolai Rozanov", email = "nikolai.rozanov@gmail.com"},
 ]

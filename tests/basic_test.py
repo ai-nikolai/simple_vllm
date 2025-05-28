@@ -1,4 +1,4 @@
-from simple_vllm import get_vllm_generator
+from easy_vllm import get_vllm_generator
 
 # Create the client.
 client = get_vllm_generator(

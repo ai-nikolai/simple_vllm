@@ -1,4 +1,4 @@
-# A very simple unsloth + vllm wrapper to allow for easy generation locally.
+# EasyVLLM - A very simple unsloth + vllm wrapper to allow for easy generation locally.
 
 > "Does what is says on the tin." - By a good friend.
 
@@ -6,7 +6,7 @@
 
 1. Installation:
 ```bash
-pip3 install simple_vllm
+pip3 install easy_vllm
 ```
 
 2. Running:
