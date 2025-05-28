@@ -7,14 +7,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "simple_vllm"
-version = "0.0.2"
+version = "0.0.4"
 description = "VLLM & Unsloth Wrapper for simple local inference."
 authors = [
     {name = "Nikolai Rozanov", email = "nikolai.rozanov@gmail.com"},
 ]
 readme = "README.md"
 license = {file = "LICENSE"}
-
+urls = {"Homepage" = "https://github.com/ai-nikolai/simple_vllm"}
 
 
 dependencies = [

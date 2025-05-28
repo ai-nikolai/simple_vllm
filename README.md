@@ -57,7 +57,9 @@ responses = llm(
 print(responses[0])
 
 # generate again just using a string input this time, without having to reload the model.
-llm("tell me something about life.", max_completion_tokens=10
+responses = llm("tell me something about life.", max_completion_tokens=10)
+
+print(responses[0])
 ```
 
 ---
