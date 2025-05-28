@@ -1,12 +1,12 @@
 # SimpleVLLM - A very simple unsloth + vllm wrapper to allow for easy generation locally.
 
-> "Does what is says on the tin." - By a good friend.
+> "Does what is says on the tin." - good friend.
 
 ## Getting Started:
 
 1. Installation:
 ```bash
-pip3 install easy_vllm
+pip3 install simple_vllm
 ```
 **Note: this will take time, as you are install vllm and unsloth.**
 
@@ -15,10 +15,10 @@ pip3 install easy_vllm
 from simple_vllm import get_vllm_generator
 
 # Create the client.
-client = get_vllm_generator(model_name="Qwen/Qwen2.5-3B-Instruct")
+llm = get_vllm_generator(model_name="Qwen/Qwen2.5-3B-Instruct")
 
 # Get the response as list of str
-responses = client.generate("Hello, could you tell me how to become a better human")
+responses = llm("Hello, could you tell me how to become a better human")
 
 print(responses[0])
 ```
@@ -29,7 +29,7 @@ print(responses[0])
 from simple_vllm import get_vllm_generator
 
 # Create the client.
-client = get_vllm_generator(
+llm = get_vllm_generator(
     model_name="Qwen/Qwen2.5-3B-Instruct",
     max_seq_length = 4096,
     gpu_memory_utilization=0.5,
@@ -45,7 +45,7 @@ messages = [
 ]
 
 # Get the response as list of str
-responses = client.generate(
+responses = llm(
     messages, 
     num_generations=1,
     max_completion_tokens=100,
@@ -54,7 +54,10 @@ responses = client.generate(
     )
 
 # print response.
-print(responses[0]) #this will print the model output.
+print(responses[0])
+
+# generate again just using a string input this time, without having to reload the model.
+llm("tell me something about life.", max_completion_tokens=10
 ```
 
 ---

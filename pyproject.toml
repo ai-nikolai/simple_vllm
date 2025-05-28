@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "simple_vllm"
-version = "0.0.1"
+version = "0.0.2"
 description = "VLLM & Unsloth Wrapper for simple local inference."
 authors = [
     {name = "Nikolai Rozanov", email = "nikolai.rozanov@gmail.com"},
