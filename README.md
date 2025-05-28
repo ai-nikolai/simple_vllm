@@ -8,6 +8,7 @@
 ```bash
 pip3 install easy_vllm
 ```
+**Note: this will take time, as you are install vllm and unsloth.**
 
 2. Running:
 ```python
