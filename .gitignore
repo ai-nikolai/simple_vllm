@@ -1,2 +1,4 @@
 pypi_build.sh
 pypi_upload.sh
+__pycache__
+unsloth_compiled_cache

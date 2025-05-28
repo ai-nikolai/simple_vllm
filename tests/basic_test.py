@@ -1,16 +1,3 @@
-# A very simple unsloth + vllm wrapper to allow for easy generation locally.
-
-> "Does what is says on the tin." - By a good friend.
-
-## Getting Started:
-
-1. Installation:
-```bash
-pip3 install simple_vllm
-```
-
-2. Running:
-```python
 from simple_vllm import get_vllm_generator
 
 # Create the client.
@@ -39,6 +26,3 @@ responses = client.generate(
 
 # print response.
 print(responses[0]) #this will print the model output.
-```
-
-### (C) - Nikolai Rozanov, 2025 - Present

@@ -1,0 +1,8 @@
+pip3 install --no-cache unsloth==2025.5.7 vllm==0.8.5.post1
+
+# pip3 freeze | grep unsloth
+# pip3 freeze | grep vllm
+# pip3 freeze | grep torch
+# pip3 freeze | grep transformers
+# pip3 freeze | grep peft
+# pip3 freeze | grep trl

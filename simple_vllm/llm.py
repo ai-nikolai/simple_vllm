@@ -48,6 +48,15 @@
 #     def __len__(self):
 #         return len(self.choices)
 
+def get_simple_messages(prompt):
+    simple_message = [
+        {
+            "role" : "user",
+            "content" : f"{prompt}"
+        }
+    ]
+    return simple_message
+
 
 def get_vllm_generator(        
         model_name = None ,
@@ -59,15 +68,29 @@ def get_vllm_generator(
         max_lora_rank = 64,
         gpu_memory_utilization = 0.5, # Reduce if out of memory
         random_state=1234,
+        verbose=True,
         **kwargs,
     ):
     """Gets a generator function to call vllm."""
-    from unsloth import FastLanguageModel
-    from vllm import SamplingParams
-
     if not model_name:
         raise ValueError("You need to specify a model name.")
+    
+    if verbose:
+        print("-------\nUnsloth is being Loaded (don't worry). ;)\n\n\n")
+    from unsloth import FastLanguageModel
+    if verbose:
+        print("\n\n\n--------\n Unsloth finished loading.")
+    
+    if verbose:
+        print("-------\n VLLM is being Loaded (don't worry 2.0). ;)\n\n\n")
+    from vllm import SamplingParams
+    if verbose:
+        print("\n\n\n--------\n VLLM finished loading.")
 
+
+    
+    if verbose:
+        print("--------\nModel is being loaded.\n\n\n")
     model, tokenizer = FastLanguageModel.from_pretrained(
         model_name = model_name ,
         max_seq_length = max_seq_length,
@@ -79,12 +102,14 @@ def get_vllm_generator(
         gpu_memory_utilization = gpu_memory_utilization, # Reduce if out of memory
         **kwargs,
     )
-
+    if verbose:
+        print(f"\n\n\n--------\n Model and Tokenizer finished loading for model: {model_name}.")
+    
     def generate(
             messages, 
             num_generations=1, 
+            max_completion_tokens=max_seq_length//2+1,
             temperature=0.2, 
-            max_completion_tokens=1024,
             top_p=0.95,
             lora_name=None,
             verbose=False,
@@ -92,7 +117,10 @@ def get_vllm_generator(
             **kwargs,
         ):
         assert max_completion_tokens < max_seq_length, f"max_completion_tokens exceeds the limit of the max_seq_length{max_seq_length} for the vllm model. Set a different param."
-
+        if type(messages) == str:
+            messages = get_simple_messages(messages)
+            print("WARNING, YOU GAVE ME A STRING AS MESSAGES. I AM ASSUMING I SHOULD CONVERT INTO A MESSAGES OBJECT!!!")
+            
         text = tokenizer.apply_chat_template(messages, tokenize = False, add_generation_prompt = True)
         if verbose:
             print("\n\n----\nModel Input after tokenizer:")
@@ -133,3 +161,5 @@ def get_vllm_generator(
             return final_output
 
     return generate
+
+
