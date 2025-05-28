@@ -6,7 +6,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "easy_vllm"
+name = "simple_vllm"
 version = "0.0.1"
 description = "VLLM & Unsloth Wrapper for simple local inference."
 authors = [
@@ -14,6 +14,7 @@ authors = [
 ]
 readme = "README.md"
 license = {file = "LICENSE"}
+
 
 
 dependencies = [
@@ -24,5 +25,5 @@ dependencies = [
 
 [tool.setuptools]
 include-package-data = true
-packages = ["vllm_sdk"]
+packages = ["simple_vllm"]
 

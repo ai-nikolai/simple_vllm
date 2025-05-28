@@ -1,4 +1,4 @@
-# EasyVLLM - A very simple unsloth + vllm wrapper to allow for easy generation locally.
+# SimpleVLLM - A very simple unsloth + vllm wrapper to allow for easy generation locally.
 
 > "Does what is says on the tin." - By a good friend.
 
